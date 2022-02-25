@@ -68,161 +68,127 @@ if(!isset($_SESSION['user']))
 
 
 
-                                    <form>
+                                    <form id="frmRegister">
                                         <fieldset class="form-group border p-3">
                                             <legend class="w-auto px-2 ">Datos personales</legend>
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 offset-1 col-form-label">Nombres</label>
-                                                <div class="col-sm-6">
-                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Nombres">
+
+                                            <div class="form-row">
+
+                                                <div class="form-group col-sm-4">
+                                                    <label for="inNombres">Nombres</label>                                                
+                                                    <input type="text" class="form-control" name="inNombres" id="inNombres" placeholder="Nombres" required="required">
+                                                
                                                 </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label for="inApPaterno">Apellido paterno</label>                                                    
+                                                    <input type="text" class="form-control" name="inApPaterno" id="inApPaterno" placeholder="Ingrese apellido paterno" required="required">                                                
+                                                </div> 
+                                                <div class="form-group col-sm-4">
+                                                    <label for="inApMaterno">Apellido materno</label>                                                   
+                                                    <input type="text" class="form-control" name="inApMaterno" id="inApMaterno" placeholder="Ingrese apellido materno" required="required">                                                   
+                                                </div> 
+                                                <div class="form-group col-sm-4">
+                                                    <label for="selTipoDocumento">Tipo de documento</label>
+                                                    <select class="form-control" id="selTipoDocumento" name="selTipoDocumento"></select> 
+                                                </div> 
+                                                <div class="form-group col-sm-4">
+                                                    <label for="inNumDocumento">Número de documento</label>                                                    
+                                                    <input type="text" class="form-control" id="inNumDocumento" name="inNumDocumento" placeholder="Número de documento">
+                                                </div> 
+                                                <div class="form-group col-sm-4">
+                                                    <label for="selSexo">Sexo</label>                                                  
+                                                    <select class="form-control" id="selSexo" name="selSexo"></select>                                                
+                                                </div> 
+                                                <div class="form-group col-sm-4">
+                                                    <label for="inFechaNac">Fecha de nacimiento</label>                                                   
+                                                    <input type="text" class="form-control" id="inFechaNac" name="inFechaNac" placeholder="Fecha de nacimiento">                                                    
+                                                </div>  
                                             </div>
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 offset-1 col-form-label">Apellido paterno</label>
-                                                <div class="col-sm-6">
-                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Apellido paterno">
-                                                </div>
-                                            </div> 
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 offset-1 col-form-label">Apellido materno</label>
-                                                <div class="col-sm-6">
-                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Apellido materno">
-                                                </div>
-                                            </div> 
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 offset-1 col-form-label">Tipo de documento</label>
-                                                <div class="col-sm-6">
-                                                    <select class="form-control"></select> 
-                                                </div>
-                                            </div> 
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 offset-1 col-form-label">Número de documento</label>
-                                                <div class="col-sm-6">
-                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Número de documento">
-                                                </div>
-                                            </div> 
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 offset-1 col-form-label">Sexo</label>
-                                                <div class="col-sm-6">
-                                                    <select class="form-control"></select> 
-                                                </div>
-                                            </div> 
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 offset-1 col-form-label">Fecha de nacimiento</label>
-                                                <div class="col-sm-6">
-                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Fecha de nacimiento">
-                                                </div>
-                                            </div>  
                                             
                                             
                                         </fieldset>
 
                                         <fieldset class="form-group border p-3">
                                             <legend class="w-auto px-2 ">Datos de contacto</legend>
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 offset-1 col-form-label">Teléfono</label>
-                                                <div class="col-sm-6">
-                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Teléfono">
+                                            <div class="form-row">
+                                                <div class="form-group col-sm-4">
+                                                    <label for="inTelefono">Teléfono</label>                                 
+                                                    <input type="text" class="form-control" id="inTelefono" name="inTelefono" placeholder="Teléfono">                                                    
                                                 </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 offset-1 col-form-label">Celular</label>
-                                                <div class="col-sm-6">
-                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Celular">
-                                                </div>
-                                            </div> 
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 offset-1 col-form-label">Teléfono de referencia</label>
-                                                <div class="col-sm-6">
-                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Apellido materno">
-                                                </div>
-                                            </div> 
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 offset-1 col-form-label">Preguntar por</label>
-                                                <div class="col-sm-6">
-                                                    <select class="form-control"></select> 
-                                                </div>
-                                            </div> 
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 offset-1 col-form-label">Correo personal</label>
-                                                <div class="col-sm-6">
-                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Número de documento">
-                                                </div>
-                                            </div> 
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 offset-1 col-form-label">Correo institucional</label>
-                                                <div class="col-sm-6">
-                                                    <select class="form-control"></select> 
-                                                </div>
-                                            </div> 
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 offset-1 col-form-label">Fecha de nacimiento</label>
-                                                <div class="col-sm-6">
-                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Fecha de nacimiento">
-                                                </div>
-                                            </div>  
-                                            
-                                            
+                                                <div class="form-group col-sm-4">
+                                                    <label for="inCelular">Celular</label>
+                                                    <input type="text" class="form-control" id="inCelular" name="inCelular" placeholder="Celular">
+                                                </div> 
+                                                <div class="form-group col-sm-4">
+                                                    <label for="inTelReferencia">Teléfono de referencia</label>
+                                                    <input type="text" class="form-control" id="inTelReferencia" name="inTelReferencia" placeholder="Teléfono de referencia">
+                                                </div> 
+                                                <div class="form-group col-sm-4">
+                                                    <label for="selPreguntar">Preguntar por</label>
+                                                    <select class="form-control" id="selPreguntar" name="selPreguntar"></select> 
+                                                </div> 
+                                                <div class="form-group col-sm-4">
+                                                    <label for="inCorreoPer">Correo personal</label>
+                                                    <input type="email" class="form-control" id="inCorreoPer" name="inCorreoPer" placeholder="Correo personal">
+                                                </div> 
+                                                <div class="form-group col-sm-4">
+                                                <label for="inCorreoInst">Correo institucional</label>
+                                                    <input type="email" class="form-control" id="inCorreoInst" name="inCorreoInst" placeholder="Correo institucional">
+                                                </div>                                                                                                
+                                            </div>                                                                                        
                                         </fieldset>
 
                                         <fieldset class="form-group border p-3">
-                                            <legend class="w-auto px-2 ">Datos del domicilio</legend>
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 offset-1 col-form-label">Departamento</label>
-                                                <div class="col-sm-6">
-                                                    <select class="form-control"></select> 
+                                            <legend class="w-auto px-2 ">Domicilio</legend>
+                                            <div class="form-row">
+                                                <div class="form-group col-sm-4">
+                                                    <label for="selDepartamento">Departamento</label>                                 
+                                                    <select class="form-control" id="selDepartamento" name="selDepartamento"></select>                                                   
                                                 </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 offset-1 col-form-label">Provincia</label>
-                                                <div class="col-sm-6">
-                                                    <select class="form-control"></select> 
-                                                </div>
-                                            </div> 
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 offset-1 col-form-label">Distrito</label>
-                                                <div class="col-sm-6">
-                                                    <select class="form-control"></select> 
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 offset-1 col-form-label">Dirección</label>
-                                                <div class="col-sm-6">
-                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Fecha de nacimiento">
-                                                </div>
-                                            </div>  
-
+                                                <div class="form-group col-sm-4">
+                                                    <label for="selProvincia">Provincia</label>
+                                                    <select class="form-control" id="selProvincia" name="selProvincia"></select> 
+                                                </div> 
+                                                <div class="form-group col-sm-4">
+                                                    <label for="selDistrito">Distrito</label>
+                                                    <select class="form-control" id="selDistrito" name="selDistrito"></select> 
+                                                </div> 
+                                                <div class="form-group col-sm-4">
+                                                    <label for="inDireccion">Dirección</label>
+                                                    <input type="text" class="form-control" id="inDireccion" name="inDireccion" placeholder="Dirección">
+                                                </div>                                                                                                                                              
+                                            </div>                                                                                        
                                         </fieldset>
 
-
-                                       
-                                            
-                                        
-                                        
+                                        <fieldset class="form-group border p-3">
+                                            <legend class="w-auto px-2 ">Usuario de sistema</legend>
+                                            <div class="form-row">
+                                                <div class="form-group col-sm-4">
+                                                    <label for="selPerfil">Perfil</label>
+                                                    <select class="form-control" id="selPerfil" name="selPerfil" required="required"></select>
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label for="selCargo">Cargo</label>
+                                                    <select class="form-control" id="selCargo" name="selCargo" required="required"></select>
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label for="selFuncion">Funcion</label>
+                                                    <select class="form-control" id="selFuncion" name="selFuncion" required="required"></select>
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label for="inputEmail3">Usuario</label>                                 
+                                                    <input type="text" class="form-control" name="inUsuario" id="inUsuario" placeholder="Ingrese usuario" required="required">                                                
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label for="inputEmail3">Contraseña</label>
+                                                    <input type="password" class="form-control" name="inContrasena" id="inContrasena" placeholder="Ingrese contraseña" required="required">
+                                                </div>                                                                                                                                                                                                                                              
+                                            </div>                                                                                        
+                                        </fieldset>                                        
                                         
                                     </form>
-
-
-
-
-
-
-
-                                    <form method="POST" action="" id="frmRegister">
-                                    <div class="form-group">
-                                        <label for="inNombres">Nombres</label>
-                                        <input type="input" class="form-control" name="inNombres" id="inNombres" placeholder="Ingrese nombres" required="required">
-                                        <input type="hidden" id="hdiduser" >
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inApPaterno">Apellido paterno</label>
-                                        <input type="input" class="form-control" name="inApPaterno" id="inApPaterno" placeholder="Ingrese apellido paterno" required="required">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inApMaterno">Apellido materno</label>
-                                        <input type="input" class="form-control" name="inApMaterno" id="inApMaterno" placeholder="Ingrese apellido materno">
-                                    </div>
-                                    <div class="form-group">
+                                    
+                                    <!--<div class="form-group">
                                         <label for="selPerfil">Perfil</label>
                                         <select class="form-control" id="selPerfil" name="selPerfil" required="required"></select>
                                     </div>
@@ -241,13 +207,13 @@ if(!isset($_SESSION['user']))
                                     <div class="form-group">
                                         <label for="inContrasena">Contraseña</label>
                                         <input type="password" class="form-control" name="inContrasena" id="inContrasena" placeholder="Ingrese contraseña" required="required">
-                                    </div>
-                                    </form>
+                                    </div>-->
+                                   
                                 </div>
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary col-md-5" id="regSubmit">Registrar</button>
+                                    <button type="button" class="btn btn-primary col-md-5" id="regSubmit">Registrar</button>
                                     <button type="button" class="btn btn-danger col-md-5" style="display:none;" id="regButton">Cancelar</button>
                                 </div>
                                 
@@ -387,6 +353,35 @@ if(!isset($_SESSION['user']))
 
  }
 
+
+ function loadListas(){ 
+    arrLista = [];
+    arrLista["Perfil"] = "#selPerfil";
+    arrLista["Cargo"] = "#selCargo";
+    arrLista["Funcion"] = "#selFuncion";
+    arrLista["TipoDocumento"] = "#selTipoDocumento";
+    arrLista["Sexo"] = "#selSexo";
+    arrLista["Departamento"] = "#selDepartamento";
+   
+     $.ajax({
+          type:"POST",
+          url:"lista_global.php",
+          data:{'t':'register_all'},
+          success:function(d){
+              result = jQuery.parseJSON(d);
+           
+              $.each(result, function(i,v){
+                  $(arrLista[i]).html(v);
+              })
+            //$(sel).html(r);                
+          },error:function(){
+            msgBox('warning','warning',"error al cargar las listas");
+            
+          }
+    });
+
+ }
+
  function getUsuarios(){
      var data;
       $.ajax({
@@ -466,11 +461,21 @@ function loadUsuarios(){
 				"url": "../../public/cdn/datatable.spanish.lang"
 			} 
     });//.buttons().container().appendTo('#tbUsuarios_wrapper .col-md-6:eq(1)'); 
+    
+    $("#regSubmit").click(function(e){
+        var frm = $("#frmRegister");
+        //frm.preventDefault();
+        var formData = frm.serializeArray();
+           console.log(frm);
+        
 
-    $("#frmRegister").submit(function(e){
-        e.preventDefault();
-        var formData = $( this ).serializeArray();
-             
+        Swal.fire({
+                icon:  'success',
+                title:  'test',
+                text: 'Por registrar'
+            })
+            return;
+
         $.ajax({
           type:"POST",
           url:"register.php",
@@ -587,13 +592,45 @@ $(document).on("click","button.editarUsuario",function(){
 
 })
 
+// ubigeos
+$(document).on("change","#selDepartamento",function(){
+    var obj = $(this);
+    var sel = $("#selProvincia");
+    sel.html("");
+    $.ajax({
+      type:"POST",
+      url:"lista_global.php",
+      data:{'t' :'Provincia', 'ccdd' :obj.val()},
+      success:function(re){
+       sel.html(re);
+      },error:function(){
+        msgBox('warning','Advertencia',"error generado en el servidor ");
+      }
+    });
+})
 
+$(document).on("change","#selProvincia",function(){
+    var obj = $(this);
+    var sel = $("#selDistrito");
+    sel.html("");
+    $.ajax({
+      type:"POST",
+      url:"lista_global.php",
+      data:{'t' :'Distrito', 'ccpp' :obj.val()},
+      success:function(re){
+       sel.html(re);
+      },error:function(){
+        msgBox('warning','Advertencia',"error generado en el servidor ");
+      }
+    });
+})
 
 
 $(document).ready(function(){
-    loadLista("#selPerfil","Perfil");
+    loadListas();
+    /*loadListas("#selPerfil","Perfil");
     loadLista("#selCargo","Cargo");
-    loadLista("#selFuncion","Funcion");
+    loadLista("#selFuncion","Funcion");*/
     
     loadUsuarios();
 
