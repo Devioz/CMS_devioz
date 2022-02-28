@@ -1,9 +1,10 @@
 <?php
-session_start();
-
+//session_start();
+ini_set('display_errors', 1);
 
 include '../../bd/server.php';  
-include '../../bd/inactive_registro.php'; 
+include '../../bd/inactive_registro.php';
+include 'global.php';   
 
 
 if(!isset($_SESSION['user'])) {
@@ -12,7 +13,63 @@ if(!isset($_SESSION['user'])) {
 elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = array('status'=>0, 'msg'=> null, 'data' => []);
     if($_POST['method'] == 'r'){
-        $arrData = [];
+        $prefijo ='dev_reg_';
+        $perfil = getObjeto("z_USUARIO_PERFIL");
+        $usuario = getObjeto("z_USUARIO");
+
+        unset($perfil->id_persona);
+        //unset($perfil->usuario_reg);
+        unset($perfil->created_at);
+        unset($perfil->usuario_mod);
+        unset($perfil->updated_at);
+        unset($perfil->activo);
+        unset($perfil->eliminado);
+
+        foreach($perfil as $i => $v){
+            $perfil->{$i} = $_POST[$prefijo.$i] ?? NULL;
+        }
+        $perfil->usuario_reg = $_SESSION["id_user"];
+
+
+        $sql = "EXEC usp_Registrar_Usuario_perfil ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?";
+        $result = sqlsrv_query($conn,$sql,(array)$perfil);
+
+        if( $result === false ) {
+            if( ($errors = sqlsrv_errors() ) != null) {
+                foreach( $errors as $error ) {
+                    $data['msg'] = "SQLSTATE: ".$error[ 'SQLSTATE'].". code: ".$error[ 'code'].". message: ".$error[ 'message'];                
+                }
+            }
+        }else{
+            while ($row=sqlsrv_fetch_array($result)) {
+                //$data['status'] = $row['status'];
+                //$data['msg'] = $row['msg'];
+                $usuario->id_usuario_perfil = $row['ID'];
+
+                $sql = "EXEC usp_Registrar_Usuario ?,?,?,?,?,?";
+                $result = sqlsrv_query($conn,$sql,array($usuario->id_usuario_perfil,$usuario->id_perfil,$usuario->id_cargo,$usuario->id_funcion,$usuario->usuario,$usuario->contrasena,$usuario->usuario_reg));
+        
+                if( $result === false ) {
+                    if( ($errors = sqlsrv_errors() ) != null) {
+                        foreach( $errors as $error ) {
+                            $data['msg'] = "SQLSTATE: ".$error[ 'SQLSTATE'].". code: ".$error[ 'code'].". message: ".$error[ 'message'];                
+                        }
+                    }
+                }else{
+                    while ($row=sqlsrv_fetch_array($result)) {
+                        $data['status'] = $row['status'];
+                        $data['msg'] = $row['msg'];
+                    }        
+                }
+        
+
+            }        
+        }
+
+        foreach($usuario as $i => $v){
+            $usuario->{$i} = $_POST[$prefijo.$i] ?? NULL;
+        }
+        $usuario->usuario_reg = $_SESSION["id_user"];
         
         foreach($_POST['data'] as $i){
             $arrData[] = $i['value'];
@@ -26,24 +83,7 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $arrData[] = $_POST['inUsuario'];
         $arrData[] = $_POST['inContrasena'];*/
         $arrData[] = $_SESSION['user'];
-        
-        $sql = "EXEC usp_Registrar_Usuario ?,?,?,?,?,?,?,?,?";
-        $result = sqlsrv_query($conn,$sql, $arrData);
-
-        if( $result === false ) {
-            if( ($errors = sqlsrv_errors() ) != null) {
-                foreach( $errors as $error ) {
-                    $data['msg'] = "SQLSTATE: ".$error[ 'SQLSTATE'].". code: ".$error[ 'code'].". message: ".$error[ 'message'];                
-                }
-            }
-        }else{
-            while ($row=sqlsrv_fetch_array($result)) {
-                $data['status'] = $row['status'];
-                $data['msg'] = $row['msg'];
-            }        
-        }
-
-
+  
 
 
     }

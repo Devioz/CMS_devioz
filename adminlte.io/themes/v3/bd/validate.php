@@ -29,6 +29,7 @@
 							$perfil_id='';								  
 								while($row = sqlsrv_fetch_array( $log, SQLSRV_FETCH_ASSOC) ) 
 									{
+										$_SESSION["id_user"] = $row['id_usuario'];
 										$_SESSION["user"] = $row['usuario'];
 										$_SESSION["usuario"] = $row['usuario'];
 										$_SESSION["Apaterno"] = $row['Apaterno'];

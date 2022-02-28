@@ -1,6 +1,8 @@
 <?php
+ini_set('display_errors', 1);
 session_start();
 include '../../bd/server.php';   
+include 'global.php';   
 
 if(!isset($_SESSION['user'])) 
 
@@ -131,6 +133,24 @@ function getSexo($t = null){
 	}
 }
 
+function getEstadoCivil($t = null){
+	$html_ = $GLOBALS['html'];
+	$arr = array(
+		1 => "Soltero(a)",
+		2 => "Casado(a)",
+		3 => "Divorciado(a)",
+		4 => "Viudo(a)"
+	);
+	if($t == "html"){
+		foreach ($arr as $i => $v) {
+			$html_.= "<option value ='".$i."'>".$v."</option>";
+		}
+		return $html_;
+	}else{		
+		return $arr;
+	}
+}
+
 function getDepartamento($t = null){
 	global $conn;
 	$html_ = $GLOBALS['html'];
@@ -204,6 +224,7 @@ elseif($_POST['t'] == 'Funcion'){
 	$data = getFuncion("html");
 }
 elseif($_POST['t'] == 'Provincia'){
+	//$data = json_encode(getObjeto('z_USUARIO')); 
 	$data = getProvincia($_POST["ccdd"],"html");
 }
 elseif($_POST['t'] == 'Distrito'){
@@ -216,6 +237,7 @@ elseif($_POST['t'] == 'register_all'){
 	$data["TipoDocumento"] = getTipoDocumento("html");
 	$data["Sexo"] = getSexo("html");
 	$data["Departamento"] = getDepartamento("html");
+	$data["EstadoCivil"] = getEstadoCivil("html");
 	$data = json_encode($data);
 }
 elseif($_POST['t'] == 'users'){

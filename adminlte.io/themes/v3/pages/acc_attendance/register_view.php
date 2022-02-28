@@ -1,5 +1,6 @@
 <?php
-session_start();
+ini_set('display_errors', 1);
+//session_start();
 include '../../bd/server.php';   
 
 if(!isset($_SESSION['user'])) 
@@ -75,34 +76,38 @@ if(!isset($_SESSION['user']))
                                             <div class="form-row">
 
                                                 <div class="form-group col-sm-4">
-                                                    <label for="inNombres">Nombres</label>                                                
-                                                    <input type="text" class="form-control" name="inNombres" id="inNombres" placeholder="Nombres" required="required">
+                                                    <label for="dev_reg_Nombres">Nombres</label>                                                
+                                                    <input type="text" class="form-control" name="dev_reg_Nombres" id="dev_reg_Nombres" placeholder="Nombres" required="required">
                                                 
                                                 </div>
                                                 <div class="form-group col-sm-4">
-                                                    <label for="inApPaterno">Apellido paterno</label>                                                    
-                                                    <input type="text" class="form-control" name="inApPaterno" id="inApPaterno" placeholder="Ingrese apellido paterno" required="required">                                                
+                                                    <label for="dev_reg_ApPaterno">Apellido paterno</label>                                                    
+                                                    <input type="text" class="form-control" name="dev_reg_ApPaterno" id="dev_reg_ApPaterno" placeholder="Apellido paterno" required="required">                                                
                                                 </div> 
                                                 <div class="form-group col-sm-4">
-                                                    <label for="inApMaterno">Apellido materno</label>                                                   
-                                                    <input type="text" class="form-control" name="inApMaterno" id="inApMaterno" placeholder="Ingrese apellido materno" required="required">                                                   
+                                                    <label for="dev_reg_ApMaterno">Apellido materno</label>                                                   
+                                                    <input type="text" class="form-control" name="dev_reg_ApMaterno" id="dev_reg_ApMaterno" placeholder="Apellido materno" required="required">                                                   
                                                 </div> 
                                                 <div class="form-group col-sm-4">
-                                                    <label for="selTipoDocumento">Tipo de documento</label>
-                                                    <select class="form-control" id="selTipoDocumento" name="selTipoDocumento"></select> 
+                                                    <label for="dev_reg_id_tipodocumento">Tipo de documento</label>
+                                                    <select class="form-control" id="dev_reg_id_tipodocumento" name="dev_reg_id_tipodocumento"></select> 
                                                 </div> 
                                                 <div class="form-group col-sm-4">
-                                                    <label for="inNumDocumento">Número de documento</label>                                                    
-                                                    <input type="text" class="form-control" id="inNumDocumento" name="inNumDocumento" placeholder="Número de documento">
+                                                    <label for="dev_reg_NumDocumento">Número de documento</label>                                                    
+                                                    <input type="text" class="form-control" id="dev_reg_NumDocumento" name="dev_reg_NumDocumento" placeholder="Número de documento">
                                                 </div> 
                                                 <div class="form-group col-sm-4">
-                                                    <label for="selSexo">Sexo</label>                                                  
-                                                    <select class="form-control" id="selSexo" name="selSexo"></select>                                                
+                                                    <label for="dev_reg_Genero">Sexo</label>                                                  
+                                                    <select class="form-control" id="dev_reg_Genero" name="dev_reg_Genero"></select>
                                                 </div> 
                                                 <div class="form-group col-sm-4">
-                                                    <label for="inFechaNac">Fecha de nacimiento</label>                                                   
-                                                    <input type="text" class="form-control" id="inFechaNac" name="inFechaNac" placeholder="Fecha de nacimiento">                                                    
-                                                </div>  
+                                                    <label for="dev_reg_Fecha_nacimiento">Fecha de nacimiento</label>                                                   
+                                                    <input type="text" class="form-control" id="dev_reg_Fecha_nacimiento" name="dev_reg_Fecha_nacimiento" placeholder="Fecha de nacimiento">                                                    
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label for="dev_reg_id_estado_civil">Estado civil</label>                                                   
+                                                    <select class="form-control" id="dev_reg_id_estado_civil" name="dev_reg_id_estado_civil"></select>
+                                                </div> 
                                             </div>
                                             
                                             
@@ -112,28 +117,28 @@ if(!isset($_SESSION['user']))
                                             <legend class="w-auto px-2 ">Datos de contacto</legend>
                                             <div class="form-row">
                                                 <div class="form-group col-sm-4">
-                                                    <label for="inTelefono">Teléfono</label>                                 
-                                                    <input type="text" class="form-control" id="inTelefono" name="inTelefono" placeholder="Teléfono">                                                    
+                                                    <label for="dev_reg_Telefono">Teléfono</label>                                 
+                                                    <input type="text" class="form-control" id="dev_reg_Telefono" name="dev_reg_Telefono" placeholder="Teléfono">                                                    
                                                 </div>
                                                 <div class="form-group col-sm-4">
-                                                    <label for="inCelular">Celular</label>
-                                                    <input type="text" class="form-control" id="inCelular" name="inCelular" placeholder="Celular">
+                                                    <label for="dev_reg_Celular">Celular</label>
+                                                    <input type="text" class="form-control" id="dev_reg_Celular" name="dev_reg_Celular" placeholder="Celular">
                                                 </div> 
                                                 <div class="form-group col-sm-4">
-                                                    <label for="inTelReferencia">Teléfono de referencia</label>
-                                                    <input type="text" class="form-control" id="inTelReferencia" name="inTelReferencia" placeholder="Teléfono de referencia">
+                                                    <label for="dev_reg_Telefono_referencia">Teléfono de referencia</label>
+                                                    <input type="text" class="form-control" id="dev_reg_Telefono_referencia" name="dev_reg_Telefono_referencia" placeholder="Teléfono de referencia">
                                                 </div> 
                                                 <div class="form-group col-sm-4">
-                                                    <label for="selPreguntar">Preguntar por</label>
-                                                    <select class="form-control" id="selPreguntar" name="selPreguntar"></select> 
+                                                    <label for="dev_reg_Preguntar_por">Preguntar por</label>
+                                                    <input type="text" class="form-control" id="dev_reg_Preguntar_por" name="dev_reg_Preguntar_por" placeholder="Preguntar por">
                                                 </div> 
                                                 <div class="form-group col-sm-4">
-                                                    <label for="inCorreoPer">Correo personal</label>
-                                                    <input type="email" class="form-control" id="inCorreoPer" name="inCorreoPer" placeholder="Correo personal">
+                                                    <label for="dev_reg_Correo_personal">Correo personal</label>
+                                                    <input type="email" class="form-control" id="dev_reg_Correo_personal" name="dev_reg_Correo_personal" placeholder="Correo personal">
                                                 </div> 
                                                 <div class="form-group col-sm-4">
-                                                <label for="inCorreoInst">Correo institucional</label>
-                                                    <input type="email" class="form-control" id="inCorreoInst" name="inCorreoInst" placeholder="Correo institucional">
+                                                <label for="dev_reg_Correo_institucional">Correo institucional</label>
+                                                    <input type="email" class="form-control" id="dev_reg_Correo_institucional" name="dev_reg_Correo_institucional" placeholder="Correo institucional">
                                                 </div>                                                                                                
                                             </div>                                                                                        
                                         </fieldset>
@@ -150,12 +155,12 @@ if(!isset($_SESSION['user']))
                                                     <select class="form-control" id="selProvincia" name="selProvincia"></select> 
                                                 </div> 
                                                 <div class="form-group col-sm-4">
-                                                    <label for="selDistrito">Distrito</label>
-                                                    <select class="form-control" id="selDistrito" name="selDistrito"></select> 
+                                                    <label for="dev_reg_id_ubigeo">Distrito</label>
+                                                    <select class="form-control" id="dev_reg_id_ubigeo" name="dev_reg_id_ubigeo"></select> 
                                                 </div> 
                                                 <div class="form-group col-sm-4">
-                                                    <label for="inDireccion">Dirección</label>
-                                                    <input type="text" class="form-control" id="inDireccion" name="inDireccion" placeholder="Dirección">
+                                                    <label for="dev_reg_Direccion">Dirección</label>
+                                                    <input type="text" class="form-control" id="dev_reg_Direccion" name="dev_reg_Direccion" placeholder="Dirección">
                                                 </div>                                                                                                                                              
                                             </div>                                                                                        
                                         </fieldset>
@@ -164,16 +169,16 @@ if(!isset($_SESSION['user']))
                                             <legend class="w-auto px-2 ">Usuario de sistema</legend>
                                             <div class="form-row">
                                                 <div class="form-group col-sm-4">
-                                                    <label for="selPerfil">Perfil</label>
-                                                    <select class="form-control" id="selPerfil" name="selPerfil" required="required"></select>
+                                                    <label for="dev_reg_id_perfil">Perfil</label>
+                                                    <select class="form-control" id="dev_reg_id_perfil" name="dev_reg_id_perfil" required="required"></select>
                                                 </div>
                                                 <div class="form-group col-sm-4">
-                                                    <label for="selCargo">Cargo</label>
-                                                    <select class="form-control" id="selCargo" name="selCargo" required="required"></select>
+                                                    <label for="dev_reg_id_cargo">Cargo</label>
+                                                    <select class="form-control" id="dev_reg_id_cargo" name="dev_reg_id_cargo" required="required"></select>
                                                 </div>
                                                 <div class="form-group col-sm-4">
-                                                    <label for="selFuncion">Funcion</label>
-                                                    <select class="form-control" id="selFuncion" name="selFuncion" required="required"></select>
+                                                    <label for="dev_reg_id_funcion">Funcion</label>
+                                                    <select class="form-control" id="dev_reg_id_funcion" name="dev_reg_id_funcion" required="required"></select>
                                                 </div>
                                                 <div class="form-group col-sm-4">
                                                     <label for="inputEmail3">Usuario</label>                                 
@@ -186,28 +191,7 @@ if(!isset($_SESSION['user']))
                                             </div>                                                                                        
                                         </fieldset>                                        
                                         
-                                    </form>
-                                    
-                                    <!--<div class="form-group">
-                                        <label for="selPerfil">Perfil</label>
-                                        <select class="form-control" id="selPerfil" name="selPerfil" required="required"></select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="selCargo">Cargo</label>
-                                        <select class="form-control" id="selCargo" name="selCargo" required="required"></select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="selFuncion">Funcion</label>
-                                        <select class="form-control" id="selFuncion" name="selFuncion" required="required"></select>
-                                    </div>
-                                    <div class="form-group" style="border-top:1px #007bff solid;padding-top:20px;margin-top: 20px;">
-                                        <label for="inUsuario">Usuario</label>
-                                        <input type="input" class="form-control" name="inUsuario" id="inUsuario" placeholder="Ingrese usuario" required="required">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inContrasena">Contraseña</label>
-                                        <input type="password" class="form-control" name="inContrasena" id="inContrasena" placeholder="Ingrese contraseña" required="required">
-                                    </div>-->
+                                    </form>                                    
                                    
                                 </div>
                                 <!-- /.card-body -->
@@ -333,35 +317,15 @@ if(!isset($_SESSION['user']))
 <script language="JavaScript">
 
 
-
- function loadLista(sel,tipo){ 
-     if($(sel) == 0)
-         return;
-     
-     $(sel).html("");    
-     $.ajax({
-          type:"POST",
-          url:"lista_global.php",
-          data:{'t':tipo},
-          success:function(r){
-            $(sel).html(r);                
-          },error:function(){
-            msgBox('warning','warning',"error al cargar el combo: "+sel);
-            
-          }
-    });
-
- }
-
-
  function loadListas(){ 
     arrLista = [];
-    arrLista["Perfil"] = "#selPerfil";
-    arrLista["Cargo"] = "#selCargo";
-    arrLista["Funcion"] = "#selFuncion";
-    arrLista["TipoDocumento"] = "#selTipoDocumento";
-    arrLista["Sexo"] = "#selSexo";
+    arrLista["Perfil"] = "#dev_reg_id_perfil";
+    arrLista["Cargo"] = "#dev_reg_id_cargo";
+    arrLista["Funcion"] = "#dev_reg_id_funcion";
+    arrLista["TipoDocumento"] = "#dev_reg_id_tipodocumento";
+    arrLista["Sexo"] = "#dev_reg_Genero";
     arrLista["Departamento"] = "#selDepartamento";
+    arrLista["EstadoCivil"] = "#dev_reg_id_estado_civil";
    
      $.ajax({
           type:"POST",
@@ -465,21 +429,27 @@ function loadUsuarios(){
     $("#regSubmit").click(function(e){
         var frm = $("#frmRegister");
         //frm.preventDefault();
+        //var formData = new FormData(frm);
         var formData = frm.serializeArray();
-           console.log(frm);
+           console.log(formData);
         
 
-        Swal.fire({
+        /*Swal.fire({
                 icon:  'success',
                 title:  'test',
                 text: 'Por registrar'
             })
-            return;
-
+            return;*/
+            formData.push({"name":"method", "value":"r"});
+            //formData.append("method","r");
         $.ajax({
           type:"POST",
           url:"register.php",
-          data:{'method':'r', data: formData},
+          enctype: 'multipart/form-data',
+          //data:{'method':'r', data: 'formData'},
+          data: formData,
+          //contentType: false, 
+            //processData: false
           success:function(re){
             var result = JSON.parse(re);
             $("#frmRegister")[0].reset(); 
@@ -596,6 +566,7 @@ $(document).on("click","button.editarUsuario",function(){
 $(document).on("change","#selDepartamento",function(){
     var obj = $(this);
     var sel = $("#selProvincia");
+    $("#dev_reg_id_ubigeo").html("");
     sel.html("");
     $.ajax({
       type:"POST",
@@ -611,7 +582,7 @@ $(document).on("change","#selDepartamento",function(){
 
 $(document).on("change","#selProvincia",function(){
     var obj = $(this);
-    var sel = $("#selDistrito");
+    var sel = $("#dev_reg_id_ubigeo");
     sel.html("");
     $.ajax({
       type:"POST",
